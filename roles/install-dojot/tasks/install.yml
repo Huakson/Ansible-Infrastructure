@@ -1,0 +1,18 @@
+- name: "adicionando variáveis da Dojot"
+  shell: dojotVersion={{version}} && branchName=${dojotVersion} && dojotDir=/opt/dojot && rm -rf /opt/dojot && mkdir ${dojotDir} 
+
+- name: "Clonando a Dojot para /opt/dojot/"
+  git:
+    repo: 'https://github.com/dojot/docker-compose.git'
+    dest: /opt/dojot/
+    clone: yes
+    update: yes
+
+- name: "Matando processo da porta 1883 se existir"
+  shell: try(fuser -n tcp -k 1883) 
+  ignore_errors: yes
+
+- name: "Subindo a Dojot via docker-compose"
+  shell: cd /opt/dojot/ && sudo docker-compose up -d
+
+

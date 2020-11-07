@@ -1,0 +1,17 @@
+- name: "Instalando postgresql"
+  apt: name={{ item }} state=present
+  with_items:
+    - postgresql
+    - postgresql-contrib
+   
+- name: "Adicionando a chave do postgresql"
+  shell: wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+- name: "Baixando o repositorio do pgadmin4"
+  shell: sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' && sudo apt-get update
+
+- name: "Instalando pgadmin4"
+  apt: name={{ item }} state=present
+  with_items:
+    - pgadmin4 
+    - pgadmin4-apache2

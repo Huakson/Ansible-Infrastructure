@@ -1,0 +1,103 @@
+---
+- hosts: all
+  become: yes
+  user: root
+  gather_facts: no
+  pre_tasks:
+  - name: 'Instalando Python'
+    raw: 'apt-get -y install python'
+ 
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-docker
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-arduino-ide
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-eclipse
+  vars:
+    user: numbers
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-java8
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-postgresql
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-nodejs
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-git
+
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-dojot
+  vars:
+    version: v0.3.1 
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-vscode
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-python3.7
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-ionic4
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-android-studio
+
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-vitualbox
+ 
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-mongodb 
+  
+- hosts: hosts
+  become: yes
+  user: root
+  roles:
+  - install-dropbox 

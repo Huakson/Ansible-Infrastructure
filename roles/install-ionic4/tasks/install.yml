@@ -1,0 +1,4 @@
+- name: "Instalando o Ionic4"
+  npm:
+    name: ionic
+    global: yes

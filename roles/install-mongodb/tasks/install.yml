@@ -1,0 +1,13 @@
+   
+- name: "Instalando MongoDB"
+  apt: 
+    name: mongodb
+    update_cache: yes
+
+- name: "Configurando o MongoDB"
+  copy:
+    src: mongodb.service
+    dest: /etc/systemd/system/mongodb.service
+
+- name: "Reiniciando o daemon e iniciando o MongoDB"
+  shell: systemctl daemon-reload && systemctl start mongodb && systemctl enable mongodb

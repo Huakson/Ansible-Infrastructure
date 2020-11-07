@@ -1,0 +1,15 @@
+- name: "Adicionando repositorio"
+  apt_repository:
+    repo: ppa:maarten-fonville/android-studio
+    
+
+- name: "Instalando o Android Studio"
+  apt:
+    name: android-studio
+    update_cache: yes
+
+- name: "Instalando o Android Studio"
+  apt:
+    name: android-studio-preview
+    update_cache: yes
+

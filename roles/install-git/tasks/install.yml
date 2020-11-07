@@ -1,0 +1,5 @@
+- name: "Instalando o Git"
+  apt:
+    name: git-core
+    state: latest
+    update_cache: yes

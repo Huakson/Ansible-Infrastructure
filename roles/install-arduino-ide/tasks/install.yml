@@ -1,0 +1,8 @@
+- name: "Baixando e extraindo o arduino ide para /opt/"
+  unarchive:
+    src: https://downloads.arduino.cc/arduino-1.8.13-linux64.tar.xz
+    dest: /opt/
+    remote_src: yes
+
+- name: "Instalando o arduino ide"
+  shell: cd /opt/arduino*/ && sudo chmod +x install.sh && ./install.sh
